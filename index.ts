@@ -3,6 +3,10 @@ import 'express-async-errors';
 import * as methodOverride from "method-override";
 import {static as expressStatic , urlencoded} from "express";
 import {engine} from "express-handlebars";
+import {homeRouter} from "./routers/home";
+import {warriorRouter} from "./routers/warrior";
+import {arenaRouter} from "./routers/arena";
+import {hallOfFameRouter} from "./routers/hall-of-fame";
 
 // creating an express app
 const app = express();
@@ -28,9 +32,15 @@ app.engine('.hbs', engine({
 // setting my view engine to .hbs
 app.set('view engine', '.hbs')
 
-app.get('/', (req,res)=>{
-    res.send('Hello!');
-});
+
+// using homeRouter
+app.use('/', homeRouter);
+// using warriorRouter
+app.use('/warrior', warriorRouter)
+// using arenaRouter
+app.use('/arena', arenaRouter)
+// using hallofFameRouter
+app.use('/hall-of-fame', hallOfFameRouter)
 
 //handling errors
 // app.use(handleError)
