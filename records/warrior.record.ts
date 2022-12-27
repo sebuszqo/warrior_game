@@ -43,4 +43,40 @@ export class WarriorRecord{
         this.wins = wins;
     }
 
+    /**
+     * Inserting new warrior to database
+     */
+    async insert(){
+
+    }
+
+    /**
+     * Updating counter of wins after warrior win
+     */
+    async updateWins() {
+
+    }
+
+    /**
+     * Getting One Warrior with id that we are searching
+     * @param id
+     */
+    static async getOneWarrior(id:string){
+
+    }
+
+    /**
+     * Listing all of our Warriors
+     */
+    static async listAll(){
+
+    }
+
+    /**
+     * Listing only number of the best warriors that we want to display
+     * @param topCount
+     */
+    static async listTopWarriors(topCount: number){
+
+    }
 }
