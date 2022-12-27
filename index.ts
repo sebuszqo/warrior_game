@@ -1,7 +1,7 @@
 import * as express from "express";
+import {static as expressStatic, urlencoded} from "express";
 import 'express-async-errors';
 import * as methodOverride from "method-override";
-import {static as expressStatic , urlencoded} from "express";
 import {engine} from "express-handlebars";
 import {homeRouter} from "./routers/home";
 import {warriorRouter} from "./routers/warrior";
@@ -36,7 +36,6 @@ app.engine('.hbs', engine({
 // setting my view engine to .hbs
 app.set('view engine', '.hbs')
 
-
 // using homeRouter
 app.use('/', homeRouter);
 // using warriorRouter
@@ -50,7 +49,7 @@ app.use('/hall-of-fame', hallOfFameRouter)
 // app.use(handleError)
 
 // app is listening on port 3000 - console log to click every time when I need it - I do not have to copy it ;)
-app.listen(3000, 'localhost', () =>{
+app.listen(3000, 'localhost', () => {
     console.log("Listening on http://localhost:3000");
 });
 
