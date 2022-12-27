@@ -6,7 +6,7 @@
   - V1: 
     - 1 ~~konfiguracja środowiska~~
     - 2 ~~instalacja potrzebnych paczek i konfiguracja TypeScript oraz skryptów pomocniczych~~
-    - 3 ~~Konfiguracja Expressa oraz Folderu publiczny pliki statyczne~~
+    - 3 ~~Konfiguracja Express oraz Folderu publiczny pliki statyczne~~
     - 4 ~~Ogólna struktura routerów - ścieżek - zaplanowanie ścieżek, jakie się pojawią~~
       - Strona główna
         - /
