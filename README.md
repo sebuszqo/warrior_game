@@ -18,7 +18,7 @@
         - Przeprowadzenie walki — log walki
       - Sala sław
         - Lista najlepszych wojowników wszechczasów
-    - 5 zaplanowanie widoków - ogólna struktura widoków
+    - 5 ~~zaplanowanie widoków - ogólna struktura widoków~~
     - 6 Rekordy 
     - 7 Logika związana z tworzeniem wojowników
     - 8 Logika związana z salą sław
