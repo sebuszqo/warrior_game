@@ -51,8 +51,6 @@ export class WarriorRecord{
         if (!this.id){
             this.id = uuid();
         }
-
-        "INSERT INTO"
         return
     }
 
