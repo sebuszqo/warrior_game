@@ -8,5 +8,5 @@ homeRouter
     // getting 'main' page
     // express knows types, so I don't need to type all things as req, res etc.
     .get('/', (req,res) =>{
-        res.send("Main Site");
+        res.render("home/home");
     })

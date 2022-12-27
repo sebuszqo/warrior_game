@@ -6,5 +6,5 @@ export const hallOfFameRouter = Router();
 hallOfFameRouter
     // getting the best warriors
     .get('/', (req,res)=>{
-        res.send("List of all best warriors");
+        res.render("hall-of-fame/list");
     })
