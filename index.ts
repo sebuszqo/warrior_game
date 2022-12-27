@@ -7,6 +7,10 @@ import {homeRouter} from "./routers/home";
 import {warriorRouter} from "./routers/warrior";
 import {arenaRouter} from "./routers/arena";
 import {hallOfFameRouter} from "./routers/hall-of-fame";
+/**
+ * Import to create a connection pool to database when we are starting an app
+ */
+import "./utils/db";
 
 // creating an express app
 const app = express();
