@@ -1,4 +1,5 @@
 import {ValidationError} from "../utils/errors";
+import {v4 as uuid} from "uuid";
 
 export class WarriorRecord{
     public id?: string;
@@ -46,14 +47,19 @@ export class WarriorRecord{
     /**
      * Inserting new warrior to database
      */
-    async insert(){
+    async insert(): Promise<string>{
+        if (!this.id){
+            this.id = uuid();
+        }
 
+        "INSERT INTO"
+        return
     }
 
     /**
      * Updating counter of wins after warrior win
      */
-    async updateWins() {
+    async updateWins(): Promise<void> {
 
     }
 
@@ -61,22 +67,23 @@ export class WarriorRecord{
      * Getting One Warrior with id that we are searching
      * @param id
      */
-    static async getOneWarrior(id:string){
-
+    static async getOneWarrior(id:string): Promise<WarriorRecord | null>{
+        return
     }
 
     /**
      * Listing all of our Warriors
      */
-    static async listAll(){
+    static async listAll(): Promise<WarriorRecord[]>{
 
+        return
     }
 
     /**
      * Listing only number of the best warriors that we want to display
      * @param topCount
      */
-    static async listTopWarriors(topCount: number){
-
+    static async listTopWarriors(topCount: number): Promise<WarriorRecord[]>{
+        return
     }
 }
