@@ -67,7 +67,7 @@ export class WarriorRecord {
      * @param id
      */
     static async getOneWarrior(id: string): Promise<WarriorRecord | null> {
-        const [results] = await db.execute("SELECT * FROM 'warrior' WHERE 'id' = :id", {
+        const [results] = await db.execute("SELECT * FROM `Warriors` WHERE `id` = :id", {
             id,
         }) as WarriorRecordResults;
         return results.length === 0 ? null : results[0];
@@ -77,7 +77,7 @@ export class WarriorRecord {
      * Listing all of our Warriors
      */
     static async listAll(): Promise<WarriorRecord[]> {
-        const [results] = await db.execute("SELECT * FROM 'warrior'") as WarriorRecordResults;
+        const [results] = await db.execute("SELECT * FROM `Warriors`") as WarriorRecordResults;
         // mapping array of warriors to create Warriors as Objects of WarriorRecord
         return results.map(obj => new WarriorRecord(obj))
     }
@@ -87,18 +87,25 @@ export class WarriorRecord {
      * @param topCount
      */
     static async listTopWarriors(topCount: number): Promise<WarriorRecord[]> {
-        const [results] = await db.execute("SELECT * FROM 'warrior' ORDER BY 'wins' DESC LIMIT : topCount", {
+        const [results] = await db.execute("SELECT * FROM `Warriors` ORDER BY `wins` DESC LIMIT : topCount", {
             topCount
         }) as WarriorRecordResults;
         // mapping array of warriors to create Warriors as Objects of WarriorRecord
         return results.map(obj => new WarriorRecord(obj))
     }
 
+    static async isNameTaken(name: string): Promise<boolean> {
+        const [results] = await db.execute("SELECT * FROM `Warriors` WHERE `name` = :name", {
+            name,
+        }) as WarriorRecordResults;
+        return results.length > 0;
+    }
+
     /**
      * Inserting new warrior to database
      */
     async insert(): Promise<string> {
-        await db.execute("INSERT INTO 'Warriors' ('id', 'name', 'power', 'defence', 'stamina', 'agility', 'wins') VALUES(:id ,:name ,:power ,:defence, :stamina ,:agility ,:wins)", {
+        await db.execute("INSERT INTO `Warriors` (`id`, `name`, `power`, `defence`, `stamina`, `agility`, `wins`) VALUES(:id ,:name ,:power ,:defence, :stamina ,:agility ,:wins)", {
             id: this.id,
             name: this.name,
             power: this.power,
@@ -115,7 +122,7 @@ export class WarriorRecord {
      * Updating counter of wins after warrior win
      */
     async updateWins(): Promise<void> {
-        await db.execute("UPDATE 'Warriors' SET 'wins' = :wins", {
+        await db.execute("UPDATE `Warriors` SET `wins` = :wins", {
             wins: this.wins
         })
     }

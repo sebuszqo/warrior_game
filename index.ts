@@ -48,6 +48,7 @@ app.use('/hall-of-fame', hallOfFameRouter)
 //handling errors
 // app.use(handleError)
 
+
 // app is listening on port 3000 - console log to click every time when I need it - I do not have to copy it ;)
 app.listen(3000, 'localhost', () => {
     console.log("Listening on http://localhost:3000");
