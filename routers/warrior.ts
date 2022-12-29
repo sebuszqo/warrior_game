@@ -13,17 +13,23 @@ warriorRouter
     // post to post new warrior
     .post('/', async (req, res) => {
 
-        if (await WarriorRecord.isNameTaken(req.body.name)) {
-            throw new ValidationError(`Name ${req.body.name} has already been taken taken, choose different one`)
+        const {agility, power, defence, stamina, name} = req.body;
+
+        if (await WarriorRecord.isNameTaken(name)) {
+            throw new ValidationError(`Name ${name} has already been taken taken, choose different one`)
         }
+        // data from form is full of strings, so I have to do it as numbers
         const warrior = new WarriorRecord({
             ...req.body,
-            power: Number(req.body.power),
-            defence: Number(req.body.defence),
-            stamina: Number(req.body.stamina),
-            agility: Number(req.body.agility)
+            power: Number(power),
+            defence: Number(defence),
+            stamina: Number(stamina),
+            agility: Number(agility)
         })
-        await warrior.insert()
-        console.log(warrior)
-        res.render("warrior/warrior-added");
+        // awaiting to add new warrior to DataBase
+        const warriorId = await warrior.insert()
+        res.render("warrior/warrior-added", {
+            name: name,
+            id: warriorId
+        });
     })
