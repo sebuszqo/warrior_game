@@ -11,6 +11,7 @@ import {hallOfFameRouter} from "./routers/hall-of-fame";
  * Import to create a connection pool to database when we are starting an app
  */
 import "./utils/db";
+import {handleError} from "./utils/errors";
 
 // creating an express app
 const app = express();
@@ -46,7 +47,7 @@ app.use('/arena', arenaRouter)
 app.use('/hall-of-fame', hallOfFameRouter)
 
 //handling errors
-// app.use(handleError)
+app.use(handleError)
 
 
 // app is listening on port 3000 - console log to click every time when I need it - I do not have to copy it ;)
