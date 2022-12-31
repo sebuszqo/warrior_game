@@ -107,7 +107,8 @@ export class WarriorRecord {
     async insert(): Promise<string> {
         await db.execute("INSERT INTO `Warriors` (`id`, `name`, `power`, `defence`, `stamina`, `agility`, `wins`) VALUES(:id ,:name ,:power ,:defence, :stamina ,:agility ,:wins)", {
             id: this.id,
-            name: this.name,
+            // Making first letter of string uppercase cuz it's name
+            name: this.name.replace(/^\w/, c => c.toUpperCase()),
             power: this.power,
             defence: this.defence,
             stamina: this.stamina,
