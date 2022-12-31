@@ -87,7 +87,7 @@ export class WarriorRecord {
      * @param topCount
      */
     static async listTopWarriors(topCount: number): Promise<WarriorRecord[]> {
-        const [results] = await db.execute("SELECT * FROM `Warriors` ORDER BY `wins` DESC LIMIT : topCount", {
+        const [results] = await db.execute("SELECT * FROM `Warriors` ORDER BY `wins` DESC LIMIT :topCount", {
             topCount
         }) as WarriorRecordResults;
         // mapping array of warriors to create Warriors as Objects of WarriorRecord
