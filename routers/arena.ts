@@ -1,6 +1,7 @@
 import {Router} from "express";
 import {WarriorRecord} from "../records/warrior.record";
 import {ValidationError} from "../utils/errors";
+import {fight} from "../utils/warriors-fight";
 
 // making a 'arena' router
 export const arenaRouter = Router();
@@ -25,7 +26,12 @@ arenaRouter
         if (!warrior1 || !warrior2) {
             throw new ValidationError("We couldn't find opponent for fight, try again ")
         }
+        const {log, winner} = fight(warrior1, warrior2)
+        winner.wins++
+        await winner.updateWins();
+        console.log(winner)
 
-        res.render("arena/fight");
+
+        res.render("arena/fight", {log,});
     })
 

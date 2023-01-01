@@ -1,8 +1,9 @@
 import {WarriorRecord} from "../records/warrior.record";
 
-export const fight = (warrior1: WarriorRecord, warrior2: WarriorRecord): string[] => {
+export const fight = (warrior1: WarriorRecord, warrior2: WarriorRecord): {
+    log: string[], winner: WarriorRecord
+} => {
     const log: string[] = [];
-
 
     // making 2 warrior tmp stats object to change and use tmp data as
     //for example current health without changing anything in main object
@@ -17,6 +18,7 @@ export const fight = (warrior1: WarriorRecord, warrior2: WarriorRecord): string[
         dp: warrior2.defence,
         warrior: warrior2
     };
+
     let attacker = warrior1TmpStats;
     let defender = warrior2TmpStats
 
@@ -36,13 +38,20 @@ export const fight = (warrior1: WarriorRecord, warrior2: WarriorRecord): string[
 
                 // DP = 5 - -(-2) = 5 - 2 = 3
             }
+        } else {
+            //warrior cannot defend himself so his hp is -= attackStrength
+            defender.hp -= attackStrength;
         }
-
         // reversing  defender with attacker by using destructuring arrays
         [defender, attacker] = [attacker, defender];
 
         //  they are fighting until one of them is dead
-    } while (warrior1TmpStats.hp > 0 && warrior2TmpStats.hp > 0)
+    } while (defender.hp > 0);
 
-    return log;
+    const winner = defender.warrior;
+
+    return {
+        log,
+        winner
+    };
 };

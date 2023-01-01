@@ -15,7 +15,7 @@ export class WarriorRecord {
     public readonly defence: number;
     public readonly stamina: number;
     public readonly agility: number;
-    public readonly wins?: number;
+    public wins?: number;
 
     /**
      * giving constructor an object and Interface as his own class implementation.
@@ -70,7 +70,7 @@ export class WarriorRecord {
         const [results] = await db.execute("SELECT * FROM `Warriors` WHERE `id` = :id", {
             id,
         }) as WarriorRecordResults;
-        return results.length === 0 ? null : results[0];
+        return results.length === 0 ? null : new WarriorRecord(results[0]);
     }
 
     /**
@@ -123,7 +123,8 @@ export class WarriorRecord {
      * Updating counter of wins after warrior win
      */
     async updateWins(): Promise<void> {
-        await db.execute("UPDATE `Warriors` SET `wins` = :wins", {
+        await db.execute("UPDATE `Warriors` SET `wins` = :wins WHERE id = :id", {
+            id: this.id,
             wins: this.wins
         })
     }
