@@ -1,3 +1,15 @@
+<h1>Projekt na podsumowanie nauki TypeScriptu</h1>
+<h3>Prosta "gra" - polegająca na dodawaniu wojowników a następnie przeprowadzaniu walk pomiędzy nimi</h3>
+<h3>Dane wojowników, statystyki zapisywane są w bazie-danych: MariaDB </h3>
+
+<p>Projekt miał na celu podsumowanie i przećwiczenie dotychczasowo nabytych "umiejętności"</p>
+<h4>Użyte 'technologie:'</h4>
+
+- TypeScript
+- Express.js
+- Express-Handlebars
+- MariaDB
+
 - Plan Projektu
     - V1:
         - 1 ~~konfiguracja środowiska~~
@@ -27,8 +39,8 @@
                         - Zwinność TINYINT(2)
                         - Liczba zwycięstw, domyślnie 0 INT(11)
         - 7 ~~Logika związana z tworzeniem wojowników~~
-        - 8 Logika związana z salą sław
-        - 9 Logika związana z areną walk
+        - 8 ~~Logika związana z salą sław~~
+        - 9 ~~Logika związana z areną walk~~
     - V2:
         - Log walki — dodanie ładniejszej wersji
         - Dodać front-endowy JavaScript — ułatwiający rozdawanie punków wojowników
