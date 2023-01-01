@@ -3,7 +3,7 @@
 <h3>Dane wojowników, ich statystyki oraz nowo stworzeni wojownicy zapisywani są w bazie-danych: MariaDB </h3>
 
 <p>Projekt miał na celu podsumowanie i przećwiczenie dotychczasowo nabytych "umiejętności"</p>
-<h4>Użyte 'technologie:'</h4>
+<h4>Użyte 'technologie':</h4>
 
 - TypeScript
 - Express.js
