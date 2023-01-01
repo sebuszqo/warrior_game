@@ -1,6 +1,6 @@
 <h1>Projekt na podsumowanie nauki TypeScriptu</h1>
-<h3>Prosta "gra" - polegająca na dodawaniu wojowników a następnie przeprowadzaniu walk pomiędzy nimi</h3>
-<h3>Dane wojowników, statystyki zapisywane są w bazie-danych: MariaDB </h3>
+<h3>Prosta "gra" - polegająca na przeprowadzaniu walk pomiędzy wojownikami</h3>
+<h3>Dane wojowników, ich statystyki oraz nowo stworzeni wojownicy zapisywani są w bazie-danych: MariaDB </h3>
 
 <p>Projekt miał na celu podsumowanie i przećwiczenie dotychczasowo nabytych "umiejętności"</p>
 <h4>Użyte 'technologie:'</h4>
