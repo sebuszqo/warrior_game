@@ -29,7 +29,7 @@ arenaRouter
         const {log, winner} = fight(warrior1, warrior2)
         winner.wins++
         await winner.updateWins();
-        console.log(winner)
+        console.log(log)
 
 
         res.render("arena/fight", {log,});
